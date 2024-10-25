@@ -67,7 +67,7 @@ export async function GET() {
   try {
     const mockProjects = generateMockData();
     return NextResponse.json({ projects: mockProjects });
-  } catch (error) {
+  } catch {
     return NextResponse.json(
       { error: "Failed to fetch projects" },
       { status: 500 }
