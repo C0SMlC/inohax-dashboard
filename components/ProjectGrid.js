@@ -15,10 +15,12 @@ export default function ProjectGrid() {
 
   async function fetchProjects() {
     try {
-      const response = await fetch("/api/mockProject");
+      const response = await fetch("/api/projectDetails");
       if (!response.ok) throw new Error("Failed to fetch projects");
       const data = await response.json();
-      setProjects(data.projects);
+
+      console.log(data.data);
+      setProjects(data.data);
     } catch (err) {
       setError(err.message);
     }
@@ -35,13 +37,16 @@ export default function ProjectGrid() {
   return (
     <>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {projects.map((project) => (
-          <ProjectCard
-            key={project.id}
-            project={project}
-            onClick={() => setSelectedProject(project)}
-          />
-        ))}
+        {projects.map((project) => {
+          console.log("mmmmmmmmmmmmmm", project.items); // Correct placement
+          return (
+            <ProjectCard
+              key={project.id}
+              project={project.items[0]}
+              onClick={() => setSelectedProject(project.items[0])}
+            />
+          );
+        })}
       </div>
 
       {selectedProject && (

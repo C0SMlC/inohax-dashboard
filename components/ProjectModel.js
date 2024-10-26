@@ -52,20 +52,28 @@ export default function ProjectModal({ project, onClose }) {
 
           <div className="space-y-6">
             <div>
-              <h3 className="text-lg font-semibold mb-2">Team Leader</h3>
+              <h3 className="text-gray-900 text-lg font-semibold mb-2">
+                Team Leader
+              </h3>
               <div className="bg-gray-50 p-4 rounded-lg">
-                <p className="font-medium">{project.teamLeaderName}</p>
+                <p className="text-gray-800 font-medium">
+                  {project.teamLeaderName}
+                </p>
                 <p className="text-gray-600">{project.teamLeaderEmail}</p>
                 <p className="text-gray-600">{project.teamLeaderPhone}</p>
               </div>
             </div>
 
             <div>
-              <h3 className="text-lg font-semibold mb-2">Project Details</h3>
+              <h3 className="text-gray-900 text-lg font-semibold mb-2">
+                Project Details
+              </h3>
               <div className="bg-gray-50 p-4 rounded-lg">
-                <h4 className="font-medium mb-2">{project.postTitle}</h4>
+                <h4 className="text-gray-800 font-medium mb-2">
+                  {project.title}
+                </h4>
                 <p className="text-gray-600 whitespace-pre-wrap">
-                  {project.postDescription}
+                  {project.description}
                 </p>
               </div>
             </div>

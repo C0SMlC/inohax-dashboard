@@ -1,4 +1,5 @@
 export default function ProjectCard({ project, onClick }) {
+  console.log("projecto", project);
   return (
     <div
       onClick={onClick}
@@ -17,7 +18,7 @@ export default function ProjectCard({ project, onClick }) {
         </div>
         <div className="border-t pt-4">
           <p className="text-sm text-gray-500">Project Title</p>
-          <p className="text-gray-900">{project.projectTitle}</p>
+          <p className="text-gray-900">{project.title}</p>
         </div>
       </div>
     </div>
