@@ -66,6 +66,19 @@ export default function ProjectModal({ project, onClose }) {
 
             <div>
               <h3 className="text-gray-900 text-lg font-semibold mb-2">
+                Team Member Details
+              </h3>
+              <div className="bg-gray-50 p-4 rounded-lg">
+                <p className="text-gray-800 font-medium">
+                  {project.teamLeaderName}
+                </p>
+                <p className="text-gray-600">{project.teamLeaderEmail}</p>
+                <p className="text-gray-600">{project.teamLeaderPhone}</p>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-gray-900 text-lg font-semibold mb-2">
                 Project Details
               </h3>
               <div className="bg-gray-50 p-4 rounded-lg">
