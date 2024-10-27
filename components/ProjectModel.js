@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 export default function ProjectModal({ project, onClose }) {
   return (
     <div
@@ -63,18 +65,19 @@ export default function ProjectModal({ project, onClose }) {
                 <p className="text-gray-600">{project.teamLeaderPhone}</p>
               </div>
             </div>
-
             <div>
               <h3 className="text-gray-900 text-lg font-semibold mb-2">
-                Team Member Details
+                Team Member
               </h3>
-              <div className="bg-gray-50 p-4 rounded-lg">
-                <p className="text-gray-800 font-medium">
-                  {project.teamLeaderName}
-                </p>
-                <p className="text-gray-600">{project.teamLeaderEmail}</p>
-                <p className="text-gray-600">{project.teamLeaderPhone}</p>
-              </div>
+
+              {project.teamMembers.map((pm) => (
+                <div key={pm._id} className="bg-gray-50 p-4 rounded-lg">
+                  <p className="text-gray-800 font-medium">{pm.name}</p>
+                  <a className="text-gray-600" href={`${pm.socialMediaLink}`}>
+                    {pm.socialMediaLink}
+                  </a>
+                </div>
+              ))}
             </div>
 
             <div>
