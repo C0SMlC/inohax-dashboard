@@ -7,7 +7,7 @@ export default function Home() {
     <div className="min-h-screen bg-gray-100">
       <nav className="bg-white shadow-md">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <h1 className="text-2xl font-bold text-gray-900">Project Teams</h1>
+          <h1 className="text-2xl font-bold text-gray-900">INOHAX</h1>
         </div>
       </nav>
 

@@ -12,6 +12,8 @@ export async function getProjects() {
     // Keep the original MongoDB documents for later use
     const mongoProjects = projectsInfo;
 
+    console.log("Data from mongo: ", projectsInfo);
+
     const projectIds = projectsInfo
       .map((project) => {
         if (!project.projectLink) return null;

@@ -19,8 +19,16 @@ export default function ProjectGrid() {
       if (!response.ok) throw new Error("Failed to fetch projects");
       const data = await response.json();
 
-      console.log(data.data);
-      setProjects(data.data);
+      // Flatten the array and add type information to each item
+      const flattenedProjects = data.data.reduce((acc, category) => {
+        const projectsWithType = category.items.map((item) => ({
+          ...item,
+          type: category.type,
+        }));
+        return [...acc, ...projectsWithType];
+      }, []);
+
+      setProjects(flattenedProjects);
     } catch (err) {
       setError(err.message);
     }
@@ -37,16 +45,13 @@ export default function ProjectGrid() {
   return (
     <>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {projects.map((project) => {
-          console.log("mmmmmmmmmmmmmm", project.items); // Correct placement
-          return (
-            <ProjectCard
-              key={project.id}
-              project={project.items[0]}
-              onClick={() => setSelectedProject(project.items[0])}
-            />
-          );
-        })}
+        {projects.map((project) => (
+          <ProjectCard
+            key={project.id}
+            project={project}
+            onClick={() => setSelectedProject(project)}
+          />
+        ))}
       </div>
 
       {selectedProject && (
